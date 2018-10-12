@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<root>
+	<recipes type="list">
+		<item type="dict">
+			<recipe type="dict">
+				<url type="str">https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas</url>
+				<title type="str">15-Minute Enchiladas</title>
+				<directions type="str">1. Preheat oven to 350 degrees F.
+2. Cover a cookie sheet with foil and spray withnonstick cooking spray.
+3. In a medium-size saucepan, heat chili andrefried beans until warm (do not boil).
+4. Spoon about half of the chili mixture evenlyonto the tortillas, sprinkle with cheese, 
+ androll up. Place side by side on the cookiesheet with seam side down.
+5. Top tortillas with remaining chili mixture.Sprinkle with remaining cheese.
+6. Bake for 10 minutes until cheese is melted.
+
+</directions>
+				<ingredients type="list">
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str">  </quantity>
+							<name type="str">nonstick cooking spray</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 3 cups</quantity>
+							<name type="str">chili without beans (1 can, about 24 ounces)</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 1 1/2 cups</quantity>
+							<name type="str">canned refried beans, low-sodium, non-fat</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 2 cups</quantity>
+							<name type="str">low-fat Cheddar or Monterey jack cheese (shredded)</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 8 </quantity>
+							<name type="str">flour tortillas, large size</name>
+						</ingridient>
+					</item>
+				</ingredients>
+			</recipe>
+		</item>
+		<item type="dict">
+			<recipe type="dict">
+				<url type="str">https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas</url>
+				<title type="str">15-Minute Enchiladas</title>
+				<directions type="str">1. Preheat oven to 350 degrees F.
+2. Cover a cookie sheet with foil and spray withnonstick cooking spray.
+3. In a medium-size saucepan, heat chili andrefried beans until warm (do not boil).
+4. Spoon about half of the chili mixture evenlyonto the tortillas, sprinkle with cheese, 
+ androll up. Place side by side on the cookiesheet with seam side down.
+5. Top tortillas with remaining chili mixture.Sprinkle with remaining cheese.
+6. Bake for 10 minutes until cheese is melted.
+
+</directions>
+				<ingredients type="list">
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str">  </quantity>
+							<name type="str">nonstick cooking spray</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 3 cups</quantity>
+							<name type="str">chili without beans (1 can, about 24 ounces)</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 1 1/2 cups</quantity>
+							<name type="str">canned refried beans, low-sodium, non-fat</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 2 cups</quantity>
+							<name type="str">low-fat Cheddar or Monterey jack cheese (shredded)</name>
+						</ingridient>
+					</item>
+					<item type="dict">
+						<ingridient type="dict">
+							<quantity type="str"> 8 </quantity>
+							<name type="str">flour tortillas, large size</name>
+						</ingridient>
+					</item>
+				</ingredients>
+			</recipe>
+		</item>
+	</recipes>
+</root>
