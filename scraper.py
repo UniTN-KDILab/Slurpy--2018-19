@@ -132,14 +132,18 @@ def ParseReviews(url):
 			
 def ReadUrls():
 	#Add your own ASINs here 
-	UrlsList = ['https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas']
-	extracted_data = []
+	UrlsList = ['https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas', 'https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas']
+	extracted_data = {"recipes":[]}
 	for url in UrlsList:
 		print("Downloading and processing page "+url)
-		extracted_data.append(ParseReviews(url))
-		sleep(5)
+		extracted_data["recipes"].append(ParseReviews(url))
+		sleep(1)
 	f = open('data.json','w')
 	json.dump(extracted_data,f,indent=4)
+	return extracted_data
+
+def rm_main():
+	return ReadUrls()
 
 if __name__ == '__main__':
 	ReadUrls()
