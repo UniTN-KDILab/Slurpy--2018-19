@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# Written as part of https://www.scrapehero.com/how-to-scrape-amazon-product-reviews-using-python/		
+# -*- coding: utf-8 -*-	
 from lxml import html  
 import json
 import requests
@@ -9,8 +8,22 @@ from dateutil import parser as dateparser
 from time import sleep
 from functools import reduce
 import numpy as np
+import pandas
+import asyncio
 
-def ParseReviews(url):
+def getUrls(url):
+	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
+	page = requests.get(url,headers = headers,verify=False)
+	page_response = page.text
+
+	parser = html.fromstring(page_response)
+	
+	XPATH_LINKS = '//a[@rel="bookmark"]/@href'
+	links = parser.xpath(XPATH_LINKS)
+	
+	return links
+
+async def ParseRicetta(url):
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
 	page = requests.get(url,headers = headers,verify=False)
 	page_response = page.text
@@ -22,14 +35,33 @@ def ParseReviews(url):
 	
 	XPATH_DIRECTIONS = '//div[@property="schema:instructions"]//text()'
 	directions_tmp = parser.xpath(XPATH_DIRECTIONS)
-	directions_tmp = map((lambda x : x.replace('\u00a0','')), directions_tmp)
+	#directions_tmp = Replacer(directions_tmp, ["\u00a0", "\n"], ["", "<br />"])
+	directions_tmp = map((lambda x : x.replace('\u00a0','').replace('\n','<br />')), directions_tmp)
 	directions = reduce((lambda x, y: x + y), directions_tmp)
 	
-	XPATH_INGREDIENTS = '//h2[contains(.,"Ingredients")]/../div//text()'
-	ingredients_tmp = parser.xpath(XPATH_INGREDIENTS)
-	ingredients_tmp = map((lambda x : x.replace('\u00a0','')), ingredients_tmp)
-	ingredients_tmp = list(filter((lambda x : x != ' '), ingredients_tmp))
-	ingredients = np.reshape(np.array(ingredients_tmp), (-1,2)).tolist()
+	XPATH_INGREDIENTS_QUANTITIES = '//span[@class="quantity-unit"]/text()'
+	ingredients_quantities = parser.xpath(XPATH_INGREDIENTS_QUANTITIES)
+	#ingredients_quantities = Replacer(ingredients_quantities, ["\u00a0", "\u00ad"], ["", ""])
+	ingredients_quantities = list(map((lambda x : x.replace('\u00a0','').replace('\u00ad','')), ingredients_quantities))
+	
+	XPATH_INGREDIENTS_NAMES = '//span[@class="ingredient-name"]/text()'
+	ingredients_names = parser.xpath(XPATH_INGREDIENTS_NAMES)
+	#ingredients_names = Replacer(ingredients_names, ["\u00a0", "\u00ad"], ["", ""])
+	ingredients_names = list(map((lambda x : x.replace('\u00a0','').replace('\u00ad','')), ingredients_names))
+	
+	XPATH_INGREDIENTS_FREE = '//span[@class="free-label"]/text()'
+	ingredients_free = parser.xpath(XPATH_INGREDIENTS_FREE)
+	#ingredients_free = Replacer(ingredients_free, ["\u00a0", "\u00ad"], ["", ""])
+	ingredients_free = list(map((lambda x : x.replace('\u00a0','').replace('\u00ad','')), ingredients_free))
+	
+	ingredients = []
+	i = 0
+	for quant in ingredients_quantities:
+		ingredients.append([quant.strip(), ingredients_names[i].strip()])
+		i = i + 1
+	
+	for item in ingredients_free:
+		ingredients.append(["", item.strip()])
 	'''
 	XPATH_REVIEW_SECTION_1 = '//div[contains(@id,"reviews-summary")]'
 	XPATH_REVIEW_SECTION_2 = '//div[@data-hook="review"]'
@@ -118,29 +150,26 @@ def ParseReviews(url):
 						}
 		reviews_list.append(review_dict)
 	'''
-	data = {
-				'url':url,
-				'title':title,
-				'directions':directions,
-				'ingredients':ingredients
-			}
+	data = [url, title, directions, ingredients]
+	#await asyncio.sleep(15)
 	return data
-	# 	except ValueError:
-	# 		print("Retrying to get the correct response")
-
-	# return {"error":"failed to process the page","asin":asin}
 			
 def ReadUrls():
-	#Add your own ASINs here 
-	UrlsList = ['https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas', 'https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas']
-	extracted_data = {"recipes":[]}
-	for url in UrlsList:
+	urls = getUrls("https://whatscooking.fns.usda.gov/search/recipes")
+	baseUrl = "https://whatscooking.fns.usda.gov"
+	#print(urls)
+	#UrlsList = ['https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas', 'https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas']
+	extracted_data = []
+	loop = asyncio.get_event_loop()
+	for url in urls:
 		print("Downloading and processing page "+url)
-		extracted_data["recipes"].append(ParseReviews(url))
-		sleep(1)
+		extracted_data.append(loop.run_until_complete(ParseRicetta(baseUrl+url)))
+	loop.close()
 	f = open('data.json','w')
 	json.dump(extracted_data,f,indent=4)
-	return extracted_data
+	#return pandas.DataFrame(extracted_data)
+	return pandas.DataFrame(extracted_data, columns=["url", "title", "directions", "ingredients"])
+	#return pandas.DataFrame([["a", "b", "c", "d"],["a", "b", "c", "d"]], columns=["a", "b", "c", "d"])
 
 def rm_main():
 	return ReadUrls()
