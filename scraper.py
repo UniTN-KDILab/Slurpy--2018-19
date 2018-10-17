@@ -10,8 +10,11 @@ from functools import reduce
 import numpy as np
 import pandas
 import asyncio
+import urllib3
 
-def getUrls(url):
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+async def getUrls(url):
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36'}
 	page = requests.get(url,headers = headers,verify=False)
 	page_response = page.text
@@ -35,23 +38,19 @@ async def ParseRicetta(url):
 	
 	XPATH_DIRECTIONS = '//div[@property="schema:instructions"]//text()'
 	directions_tmp = parser.xpath(XPATH_DIRECTIONS)
-	#directions_tmp = Replacer(directions_tmp, ["\u00a0", "\n"], ["", "<br />"])
 	directions_tmp = map((lambda x : x.replace('\u00a0','').replace('\n','<br />')), directions_tmp)
-	directions = reduce((lambda x, y: x + y), directions_tmp)
+	directions = reduce((lambda x, y: x + y), directions_tmp, "")
 	
-	XPATH_INGREDIENTS_QUANTITIES = '//span[@class="quantity-unit"]/text()'
+	XPATH_INGREDIENTS_QUANTITIES = '//span[@property="schema:amount"]//text()'
 	ingredients_quantities = parser.xpath(XPATH_INGREDIENTS_QUANTITIES)
-	#ingredients_quantities = Replacer(ingredients_quantities, ["\u00a0", "\u00ad"], ["", ""])
 	ingredients_quantities = list(map((lambda x : x.replace('\u00a0','').replace('\u00ad','')), ingredients_quantities))
 	
-	XPATH_INGREDIENTS_NAMES = '//span[@class="ingredient-name"]/text()'
+	XPATH_INGREDIENTS_NAMES = '//span[@property="schema:name"]//text()'
 	ingredients_names = parser.xpath(XPATH_INGREDIENTS_NAMES)
-	#ingredients_names = Replacer(ingredients_names, ["\u00a0", "\u00ad"], ["", ""])
 	ingredients_names = list(map((lambda x : x.replace('\u00a0','').replace('\u00ad','')), ingredients_names))
 	
-	XPATH_INGREDIENTS_FREE = '//span[@class="free-label"]/text()'
+	XPATH_INGREDIENTS_FREE = '//span[@class="free-label"]//text()'
 	ingredients_free = parser.xpath(XPATH_INGREDIENTS_FREE)
-	#ingredients_free = Replacer(ingredients_free, ["\u00a0", "\u00ad"], ["", ""])
 	ingredients_free = list(map((lambda x : x.replace('\u00a0','').replace('\u00ad','')), ingredients_free))
 	
 	ingredients = []
@@ -155,15 +154,31 @@ async def ParseRicetta(url):
 	return data
 			
 def ReadUrls():
-	urls = getUrls("https://whatscooking.fns.usda.gov/search/recipes")
 	baseUrl = "https://whatscooking.fns.usda.gov"
-	#print(urls)
-	#UrlsList = ['https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas', 'https://whatscooking.fns.usda.gov/recipes/food-distribution-fdd/15-minute-enchiladas']
-	extracted_data = []
+	
+	urlsList = ["https://whatscooking.fns.usda.gov/search/recipes"]
+	for i in range(1,77):
+		urlsList.append("https://whatscooking.fns.usda.gov/search/recipes?page="+str(i))
+	n = len(urlsList)
+	urls = []
 	loop = asyncio.get_event_loop()
+	for url in urlsList:
+		i = urlsList.index(url)+1
+		print("Analyzing page "+str(i)+" of "+str(n)+": "+url)
+		urls.extend(loop.run_until_complete(getUrls(url)))
+	
+	print("************************************")
+	print("Analysis complete, processing now...")
+	extracted_data = []
+	n = len(urls)
 	for url in urls:
-		print("Downloading and processing page "+url)
+		i = urls.index(url)+1
+		print("Processing page "+str(i)+" of "+str(n)+": "+url)
 		extracted_data.append(loop.run_until_complete(ParseRicetta(baseUrl+url)))
+		if i % 100 == 0:
+			f = open('data.json','w')
+			json.dump(extracted_data,f,indent=4)
+			f.close()
 	loop.close()
 	f = open('data.json','w')
 	json.dump(extracted_data,f,indent=4)
