@@ -11,6 +11,7 @@ import numpy as np
 import pandas
 import asyncio
 import urllib3
+import os
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -36,10 +37,26 @@ async def ParseRicetta(url):
 	XPATH_TITLE = '//h1/text()'
 	title = parser.xpath(XPATH_TITLE)[0]
 	
+	XPATH_DESCRIPTION = '//div[@property="schema:summary"]//text()'
+	description = parser.xpath(XPATH_DESCRIPTION)
+	description = map((lambda x : x.replace('\u00a0','').replace('\n','')), description)
+	description = reduce((lambda x, y: x + y), description, "")
+	
+	XPATH_SERVINGS = '//div[@class="r_summary_block"]/div/text()'
+	servings_tmp = parser.xpath(XPATH_SERVINGS)[0]
+	servings = servings_tmp.split()[0]
+	
+	XPATH_NOTDOLLARO = 'count(//span[contains(@class, "fa-usd") and contains(@class, "inactive")])'
+	notdollaro = parser.xpath(XPATH_NOTDOLLARO)
+	XPATH_ALLDOLLARO = 'count(//span[contains(@class, "fa-usd")])'
+	alldollaro = parser.xpath(XPATH_ALLDOLLARO)
+	rating = 100 * (1 - notdollaro/alldollaro)
+	
 	XPATH_DIRECTIONS = '//div[@property="schema:instructions"]//text()'
 	directions_tmp = parser.xpath(XPATH_DIRECTIONS)
-	directions_tmp = map((lambda x : x.replace('\u00a0','').replace('\n','<br />')), directions_tmp)
-	directions = reduce((lambda x, y: x + y), directions_tmp, "")
+	directions_tmp = map((lambda x : x.replace('\u00a0','')), directions_tmp)
+	directions_tmp = reduce((lambda x, y: x + y), directions_tmp, "").split("\n")
+	directions = list(filter(lambda x: x.strip() != "", directions_tmp))
 	
 	XPATH_INGREDIENTS_QUANTITIES = '//span[@property="schema:amount"]//text()'
 	ingredients_quantities = parser.xpath(XPATH_INGREDIENTS_QUANTITIES)
@@ -149,7 +166,7 @@ async def ParseRicetta(url):
 						}
 		reviews_list.append(review_dict)
 	'''
-	data = [url, title, directions, ingredients]
+	data = [url, title, description, servings, rating, directions, ingredients]
 	#await asyncio.sleep(15)
 	return data
 			
@@ -157,8 +174,8 @@ def ReadUrls():
 	baseUrl = "https://whatscooking.fns.usda.gov"
 	
 	urlsList = ["https://whatscooking.fns.usda.gov/search/recipes"]
-	for i in range(1,77):
-		urlsList.append("https://whatscooking.fns.usda.gov/search/recipes?page="+str(i))
+	#for i in range(1,77):
+	#	urlsList.append("https://whatscooking.fns.usda.gov/search/recipes?page="+str(i))
 	n = len(urlsList)
 	urls = []
 	loop = asyncio.get_event_loop()
@@ -176,14 +193,14 @@ def ReadUrls():
 		print("Processing page "+str(i)+" of "+str(n)+": "+url)
 		extracted_data.append(loop.run_until_complete(ParseRicetta(baseUrl+url)))
 		if i % 100 == 0:
-			f = open('data.json','w')
-			json.dump(extracted_data,f,indent=4)
+			f = open(os.path.basename(__file__)+'.json', 'w')
+			json.dump(extracted_data, f, indent=4)
 			f.close()
 	loop.close()
-	f = open('data.json','w')
-	json.dump(extracted_data,f,indent=4)
+	f = open(os.path.basename(__file__)+'.json', 'w')
+	json.dump(extracted_data, f, indent=4)
 	#return pandas.DataFrame(extracted_data)
-	return pandas.DataFrame(extracted_data, columns=["url", "title", "directions", "ingredients"])
+	return pandas.DataFrame(extracted_data, columns=["url", "title", "description", "servings", "rating", "directions", "ingredients"])
 	#return pandas.DataFrame([["a", "b", "c", "d"],["a", "b", "c", "d"]], columns=["a", "b", "c", "d"])
 
 def rm_main():
