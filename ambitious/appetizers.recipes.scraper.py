@@ -12,6 +12,7 @@ import numpy as np
 import pandas
 import urllib3
 import os
+import socket
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -23,7 +24,7 @@ def getUrls(response):
 
 	parser = html.fromstring(response)
 	
-	XPATH_LINKS = '//article//a/@href'
+	XPATH_LINKS = '//article//section[1]/div[1]/a[@rel="bookmark"]/@href'
 	links = parser.xpath(XPATH_LINKS)
 	return links
 
@@ -56,8 +57,10 @@ def ParseRicetta(response):
 	XPATH_TAGS = '//div[@class="ERSHead"]/span/text()'
 	#tags = []
 	tags_tmp = parser.xpath(XPATH_TAGS)
-	tags = tags_tmp[0].split(',')
-	
+	try:
+		tags = tags_tmp[0].split(',')
+	except (ValueError, IndexError) as e:
+		tags = []
     
 	#XPATH_CALORIES = '//li[@class="calories"]/span[2]/text()'
 	#calories = parser.xpath(XPATH_CALORIES)
@@ -131,7 +134,10 @@ async def ReadUrls():
 	extracted_data = []
 	
 	tasks = []
-	async with aiohttp.ClientSession() as session:
+	conn = aiohttp.TCPConnector(
+        ssl=False
+    )
+	async with aiohttp.ClientSession(connector=conn) as session:
 		for url in urlsList:
 			tasks.append(fetch(session, url))
 		htmls = await asyncio.gather(*tasks)
