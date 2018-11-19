@@ -13,6 +13,8 @@ import pandas
 import urllib3
 import os
 
+# https://www.webmd.com/search/2/api/runtime_recipes?count=18&filters=*&start=0&title=*
+
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 async def fetch(session, url):
@@ -23,7 +25,7 @@ def getUrls(response):
 
 	parser = html.fromstring(response)
 	
-	XPATH_LINKS = '//li[contains(@class, "recipe-tile")]/a/@href'
+	XPATH_LINKS = '//recipe-results//li[contains(@class, "recipe-tile")]/a/@href'
 	links = parser.xpath(XPATH_LINKS)
 	return links
 
