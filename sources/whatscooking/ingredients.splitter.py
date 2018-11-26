@@ -2,6 +2,7 @@ import json
 import re
 
 data = []
+unit_exp = []
 
 def print_ingredients():
 	splitted=[]
@@ -17,8 +18,12 @@ def print_ingredients():
 			ing = re.findall('^[a-zA-Z0-9\s]*',ing)[0]
 			ing = ing.strip()
 			splitted.append([q,u,ing])
+			if u not in unit_exp:
+				unit_exp.append(u)
 	with open('whatscooking.ingredients.json', 'w') as outfile:
 		json.dump(splitted, outfile)
+	with open('units.json', 'w') as outfile2:
+		json.dump(unit_exp, outfile2)
 
 if __name__ == '__main__':
 	filename = 'whatscooking.recipes.scraper.py.json'
