@@ -8,17 +8,15 @@ def print_ingredients():
 	splitted=[]
 	i=1
 	for row in data:
-		string_id = "tk"+str(i)
-		try:
-			ingridients_info = row[13]
+		if len(row) > 3:
+			string_id = "tk"+str(i)
+			ingridients_info = row[-1]
 			for ingridient_info in ingridients_info:
-				print(ingridient_info[2])
+				# print(ingridient_info[2])
 				ing = re.findall('^[a-zA-Z0-9\s-]*',ingridient_info[2])[0]
 				ing = ing.strip()
 				splitted.append([string_id,ingridient_info[0],ingridient_info[1],ing])
-				i=i+1
-		except:
-			i=i
+			i = i + 1
 	with open('thekitchn.ingredients.json', 'w') as outfile:
 		json.dump(splitted, outfile)
 
