@@ -15,6 +15,10 @@ def print_ingredients():
 			#for unit in units:
 			regex_word = r"\b[^\d\W]+\b"
 			u = re.findall(regex_word,units)
+			try:
+				u = u[0]
+			except:
+				u = ""
 			q = re.findall(r"[0-9/]+",units)
 			ing = ingridient_info[1]
 			ing = re.findall('^[a-zA-Z0-9\s]*',ing)[0]
