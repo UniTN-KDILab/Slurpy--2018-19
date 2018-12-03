@@ -1,0 +1,588 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#"
+     xml:base="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasAuthor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasAuthor">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isAuthorOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Author"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasCalories -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasCalories">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Calories"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasCarbohydrate -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasCarbohydrate">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Carbohydrate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasCost -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasCost">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isCostOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Cost"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasDescription -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasDescription">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isDescriptionOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Description"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasFat -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasFat">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasFiber -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasFiber">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fiber"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredient -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredient">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isIngredientOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientName -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientName">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredient"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientName"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientQuantity -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientQuantity">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredient"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientQuantity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientUnit -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientUnit">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredient"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasInstruction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasInstruction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeInstruction"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasLink -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasLink">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isLinkOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Link"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasPreparationTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasPreparationTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PreparationTime"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasProtein -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasProtein">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Protein"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasPublishDate -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasPublishDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PublishDate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasRating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasRating">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Rating"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasRecipeDiet -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasRecipeDiet">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeDiet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasRecipeRegion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasRecipeRegion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeRegion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasServing -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasServing">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Serving"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasSodium -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasSodium">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sodium"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasSugar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasSugar">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasNutrition"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sugar"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasTitle -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasTitle">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isTitleOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Title"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isAuthorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isAuthorOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Author"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isCostOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isCostOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Cost"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isDescriptionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isDescriptionOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Description"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isIngredientOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isIngredientOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isLinkOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isLinkOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Link"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isTitleOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#isTitleOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Title"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Author -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Author"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Calories -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Calories">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Carbohydrate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Carbohydrate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Cost -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Cost"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Description -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Description"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fiber -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fiber">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientName -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientName">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientQuantity -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientQuantity">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientUnit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientUnit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Link -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Link"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PreparationTime -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PreparationTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Protein -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Protein">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PublishDate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PublishDate"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Rating -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Rating"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredient"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasTitle"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeDiet -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeDiet"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientName"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientQuantity"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#hasIngredientUnit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeInstruction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeInstruction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeRegion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeRegion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Serving -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Serving"/>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sodium -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sodium">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sugar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sugar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Title -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Author"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Cost"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Description"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Link"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Nutrition"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PreparationTime"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#PublishDate"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Rating"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Recipe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeDiet"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeIngredient"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeInstruction"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#RecipeRegion"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Serving"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Title"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Calories"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Carbohydrate"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fat"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Fiber"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Protein"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sodium"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#Sugar"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientName"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientQuantity"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/buffin/ontologies/2018/11/FirstRecipe#IngredientUnit"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+
