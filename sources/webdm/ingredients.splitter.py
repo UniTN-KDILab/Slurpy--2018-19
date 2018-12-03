@@ -12,7 +12,7 @@ def print_ingredients():
 		ingridients_info = row[9]
 		for ingridient_info in ingridients_info:
 			first_part = re.findall('^[a-zA-Z0-9/\s-]*', ingridient_info[1])[0]
-			print(first_part)
+			#print(first_part)
 			regex_word = r"\b[^\d\W]+\b"
 			u=[]
 			q = re.findall(r"[0-9/]+-*",first_part)
@@ -28,8 +28,13 @@ def print_ingredients():
 			
 			ing = re.findall('^[a-zA-Z0-9\s-]*',first_part)[0]
 			ing = ing.strip()
-			splitted.append([string_id,q,u,ing])
-			i=i+1
+			
+			str_q = ' '.join(q)
+			str_q=str_q.strip()
+			str_q=re.sub(' +',' ',str_q)
+			
+			splitted.append([string_id,str_q,u,ing])
+		i=i+1
 	with open('webdm.ingredients.json', 'w') as outfile:
 		json.dump(splitted, outfile)
 
