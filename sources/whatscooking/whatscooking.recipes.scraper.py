@@ -36,7 +36,7 @@ def ParseRicetta(response):
 	
 	XPATH_DESCRIPTION = '//div[@property="schema:summary"]//text()'
 	description = parser.xpath(XPATH_DESCRIPTION)
-	description = map((lambda x : x.replace('\u00a0','').replace('\n','')), description)
+	description = map((lambda x : x.replace('\u00a0',' ').replace('\n','')), description)
 	description = reduce((lambda x, y: x + y), description, "")
 	
 	XPATH_SERVINGS = '//div[@class="r_summary_block"]/div/text()'
@@ -82,7 +82,7 @@ def ParseRicetta(response):
 	
 	XPATH_DIRECTIONS = '//div[@property="schema:instructions"]//text()'
 	directions_tmp = parser.xpath(XPATH_DIRECTIONS)
-	directions_tmp = map((lambda x : x.replace('\u00a0','')), directions_tmp)
+	directions_tmp = map((lambda x : x.replace('\u00a0',' ')), directions_tmp)
 	directions_tmp = reduce((lambda x, y: x + y), directions_tmp, "").split("\n")
 	directions = list(filter(lambda x: x.strip() != "", directions_tmp))
 	
