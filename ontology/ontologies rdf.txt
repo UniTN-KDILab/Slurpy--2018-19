@@ -1,0 +1,218 @@
+<?xml version=“1.0”?>
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:scm="https://schema.org/">
+	
+	<rdf:Description rdf:id="18">
+		<rdf:type rdf:resource="https://schema.org/Thing"/>
+		<scm:hasCreativeWork rdf:resource="#17"/>
+		<scm:description>This classic banana bread recipe</scm:description>
+		<scm:name>Mom's World Famous Banana Bread</scm:name>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="17">
+		<rdf:type rdf:resource="https://schema.org/CreativeWork"/>
+		<scm:hasHowTo rdf:resource="#0"/>
+		<scm:hasAuthor rdf:resource="#19"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="19">
+		<rdf:type rdf:resource="https://schema.org/Person"/>
+		<scm:author>John Smith</scm:author>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="0">
+		<rdf:type rdf:resource="https://schema.org/HowTo"/>
+		<scm:hasRecipe rdf:resource="#1"/>
+		<scm:estimatedCost>20 USD</scm:estimatedCost>
+		<scm:hasPerformTime rdf:resource="#14"/>
+		<scm:hasPrepTime rdf:resource="#15"/>
+		<scm:step>Mix in the ingredients in a bowl.</scm:step>
+		<scm:supply>sugar</scm:supply>
+		<scm:tool>oven</scm:tool>
+		<scm:hasTotalTime rdf:resource="#16"/>
+		<scm:yield>1 loaf</scm:yield>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="1">
+		<rdf:type rdf:resource="https://schema.org/Recipe"/>
+		<scm:hasCookTime rdf:resource="#2"/>
+		<scm:cookingMethod>Frying</scm:cookingMethod>
+		<scm:hasNutrition rdf:resource="#3"/>
+		<scm:recipeCategory>appetizer</scm:recipeCategory>
+		<scm:recipeCuisine>Italian</scm:recipeCuisine>
+		<scm:recipeIngredient>3/4 cup of sugar</scm:recipeIngredient>
+		<scm:recipeInstructions>Preheat the oven to 350 degrees. Mix in the ingredients in a bowl.</scm:recipeInstructions>
+		<scm:recipeYield>1 loaf</scm:recipeYield>
+		<scm:isSuitableForDiet rdf:resource="#13"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="2">
+		<rdf:type rdf:resource="https://schema.org/Duration"/>
+		<scm:cookTime>PT1H</scm:cookTime>
+	</rdf:Description>
+	<rdf:Description rdf:id="14">
+		<rdf:type rdf:resource="https://schema.org/Duration"/>
+		<scm:performTime>PT2H</scm:performTime>
+	</rdf:Description>
+	<rdf:Description rdf:id="15">
+		<rdf:type rdf:resource="https://schema.org/Duration"/>
+		<scm:prepTime>PT30M</scm:prepTime>
+	</rdf:Description>
+	<rdf:Description rdf:id="16">
+		<rdf:type rdf:resource="https://schema.org/Duration"/>
+		<scm:totalTime>PT3H</scm:totalTime>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="3">
+		<rdf:type rdf:resource="https://schema.org/NutritionInformation"/>
+		<scm:hasCalories rdf:resource="#4"/>
+		<scm:hasFatContent rdf:resource="#5"/>
+		<scm:hasSaturatedFatContent rdf:resource="#6"/>
+		<scm:hasCarbohydrateContent rdf:resource="#7"/>
+		<scm:hasFiberContent rdf:resource="#8"/>
+		<scm:hasSugarContent rdf:resource="#9"/>
+		<scm:hasProteinContent rdf:resource="#10"/>
+		<scm:hasSodiumContent rdf:resource="#11"/>
+		<scm:hasCholesterolContent rdf:resource="#12"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="4">
+		<rdf:type rdf:resource="https://schema.org/Energy"/>
+		<scm:energy>240 calories</scm:energy>
+	</rdf:Description>
+	<rdf:Description rdf:id="5">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:fatContent>9 grams</scm:fatContent>
+	</rdf:Description>
+	<rdf:Description rdf:id="6">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:saturatedFatContent>92 grams</scm:saturatedFatContent>
+	</rdf:Description>
+	<rdf:Description rdf:id="7">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:carbohydrateContent>39 grams</scm:carbohydrateContent>
+	</rdf:Description>
+	<rdf:Description rdf:id="8">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:fiberContent>8 grams</scm:fiberContent>
+	</rdf:Description>
+	<rdf:Description rdf:id="9">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:sugarContent>34 grams</scm:sugarContent>
+	</rdf:Description>
+	<rdf:Description rdf:id="10">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:proteinContent>18 grams</scm:proteinContent>
+	</rdf:Description>
+	<rdf:Description rdf:id="11">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:sodiumContent>25 grams</scm:sodiumContent>
+	</rdf:Description>
+	<rdf:Description rdf:id="12">
+		<rdf:type rdf:resource="https://schema.org/Mass"/>
+		<scm:cholesterolContent>75 grams</scm:cholesterolContent>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="13">
+		<rdf:type rdf:resource="https://schema.org/RestrictedDiet"/>
+		<scm:suitableForDiet>http://schema.org/LowFatDiet</scm:suitableForDiet>
+	</rdf:Description>
+</rdf:RDF>
+
+
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rcp="http://our/Recipe" >
+	
+	<rdf:Description rdf:id="1">
+		<rdf:type rdf:resource="http://our/Recipe"/>
+		<rcp:name>Mom's World Famous Banana Bread</rcp:name>
+		<rcp:description>This classic banana bread recipe</rcp:description>
+		<rcp:hasNutrition rdf:resource="#3"/>
+		<rcp:recipeCuisine>Italian</rcp:recipeCuisine>
+		<rcp:hasRecipeIngredient rdf:resource="#12"/>
+		<rcp:recipeInstructions>Preheat the oven to 350 degrees. Mix in the ingredients in a bowl.</rcp:recipeInstructions>
+		<rcp:recipeServing>4 people</rcp:recipeServing>
+		<rcp:recipeCost>20</rcp:recipeCost>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="3">
+		<rdf:type rdf:resource="https://our/NutritionInformation"/>
+		<rcp:calories>240</rcp:calories>
+		<rcp:fatContent>12</rcp:fatContent>
+		<rcp:saturatedFatContent>3</rcp:saturatedFatContent>
+		<rcp:carbohydrateContent>125</rcp:carbohydrateContent>
+		<rcp:fiberContent>18</rcp:fiberContent>
+		<rcp:sugarContent>38</rcp:sugarContent>
+		<rcp:proteinContent>22</rcp:proteinContent>
+		<rcp:sodiumContent>32</rcp:sodiumContent>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="12">
+		<rdf:type rdf:resource="https://our/RecipeIngredient"/>
+		<rcp:ingredientQuantity>1 1/5</rcp:ingredientQuantity>
+		<rcp:ingredientUnit>l</rcp:ingredientUnit>
+		<rcp:ingredientName>milk</rcp:ingredientName>
+	</rdf:Description>
+	
+</rdf:RDF>
+
+
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:scm="https://schema.org/"
+	xmlns:rcp="http://our/Recipe" >
+	
+	<rdf:Description rdf:id="1">
+		<rdf:type rdf:resource="http://our/Recipe"/>
+		<rcp:name>Mom's World Famous Banana Bread</rcp:name>
+		<rcp:description>This classic banana bread recipe</rcp:description>
+		<rcp:hasNutrition rdf:resource="#3"/>
+		<rcp:recipeCuisine>Italian</rcp:recipeCuisine>
+		<rcp:hasRecipeIngredient rdf:resource="#4"/>
+		<rcp:recipeInstructions>Preheat the oven to 350 degrees. Mix in the ingredients in a bowl.</rcp:recipeInstructions>
+		<rcp:recipeServing>4 people</rcp:recipeServing>
+		<rcp:recipeCost>20</rcp:recipeCost>
+		
+		<rcp:author>John Smith</rcp:author>
+		
+		<scm:hasCookTime rdf:resource="#2"/>
+		<scm:cookingMethod>Frying</scm:cookingMethod>
+		<scm:recipeCategory>appetizer</scm:recipeCategory>
+		<scm:isSuitableForDiet rdf:resource="#5"/>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="2">
+		<rdf:type rdf:resource="https://schema.org/Duration"/>
+		<scm:cookTime>PT1H</scm:cookTime>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="3">
+		<rdf:type rdf:resource="https://our/NutritionInformation"/>
+		<rcp:calories>240</rcp:calories>
+		<rcp:fatContent>12</rcp:fatContent>
+		<rcp:saturatedFatContent>3</rcp:saturatedFatContent>
+		<rcp:carbohydrateContent>125</rcp:carbohydrateContent>
+		<rcp:fiberContent>18</rcp:fiberContent>
+		<rcp:sugarContent>38</rcp:sugarContent>
+		<rcp:proteinContent>22</rcp:proteinContent>
+		<rcp:sodiumContent>32</rcp:sodiumContent>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="4">
+		<rdf:type rdf:resource="https://our/RecipeIngredient"/>
+		<rcp:ingredientQuantity>1 1/5</rcp:ingredientQuantity>
+		<rcp:ingredientUnit>l</rcp:ingredientUnit>
+		<rcp:ingredientName>milk</rcp:ingredientName>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="5">
+		<rdf:type rdf:resource="https://schema.org/RestrictedDiet"/>
+		<scm:suitableForDiet>http://schema.org/LowFatDiet</scm:suitableForDiet>
+	</rdf:Description>
+	
+</rdf:RDF>
