@@ -1,0 +1,37 @@
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:rcp="http://our/Recipe" >
+	
+	<rdf:Description rdf:id="1">
+		<rdf:type rdf:resource="http://our/Recipe"/>
+		<rcp:name>Mom's World Famous Banana Bread</rcp:name>
+		<rcp:description>This classic banana bread recipe</rcp:description>
+		<rcp:hasNutrition rdf:resource="#3"/>
+		<rcp:recipeCuisine>Italian</rcp:recipeCuisine>
+		<rcp:hasRecipeIngredient rdf:resource="#12"/>
+		<rcp:recipeInstructions>Preheat the oven to 350 degrees. Mix in the ingredients in a bowl.</rcp:recipeInstructions>
+		<rcp:recipeServing>4 people</rcp:recipeServing>
+		<rcp:recipeCost>20</rcp:recipeCost>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="3">
+		<rdf:type rdf:resource="https://our/NutritionInformation"/>
+		<rcp:calories>240</rcp:calories>
+		<rcp:fatContent>12</rcp:fatContent>
+		<rcp:saturatedFatContent>3</rcp:saturatedFatContent>
+		<rcp:carbohydrateContent>125</rcp:carbohydrateContent>
+		<rcp:fiberContent>18</rcp:fiberContent>
+		<rcp:sugarContent>38</rcp:sugarContent>
+		<rcp:proteinContent>22</rcp:proteinContent>
+		<rcp:sodiumContent>32</rcp:sodiumContent>
+	</rdf:Description>
+	
+	<rdf:Description rdf:id="12">
+		<rdf:type rdf:resource="https://our/RecipeIngredient"/>
+		<rcp:ingredientQuantity>1 1/5</rcp:ingredientQuantity>
+		<rcp:ingredientUnit>l</rcp:ingredientUnit>
+		<rcp:ingredientName>milk</rcp:ingredientName>
+	</rdf:Description>
+	
+</rdf:RDF>
